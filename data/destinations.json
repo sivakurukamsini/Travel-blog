@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Kandy",
+        "location": "Central Province",
+        "description": "Home to the sacred Temple of the Tooth Relic and surrounded by misty hills covered in tea plantations. A UNESCO World Heritage Site.",
+        "image": "images/destination1.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Galle",
+        "location": "Southern Province",
+        "description": "A historic port city featuring a stunning 16th-century fort. Known for beautiful beaches, seafood restaurants, and colonial architecture.",
+        "image": "images/destination2.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Ella",
+        "location": "Central Highlands",
+        "description": "A scenic mountain town surrounded by lush green valleys and tea plantations. Perfect for hiking, exploring nature, and experiencing hill station culture.",
+        "image": "images/destination3.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Colombo",
+        "location": "Western Province",
+        "description": "The capital and largest city of Sri Lanka. Hub of commerce, culture, and dining with colonial heritage buildings and modern attractions.",
+        "image": "images/destination4.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Sigiriya",
+        "location": "Central Province",
+        "description": "Home to an ancient rock fortress that rises 200 meters above the surrounding plains. A UNESCO World Heritage Site with stunning views.",
+        "image": "images/destination5.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Mirissa",
+        "location": "Southern Coast",
+        "description": "A beautiful beach town famous for whale watching, golden beaches, and vibrant nightlife. Perfect for relaxation and water sports.",
+        "image": "images/destination6.jpg"
+    }
+]

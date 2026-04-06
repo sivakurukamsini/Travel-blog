@@ -1,0 +1,96 @@
+# Git Ignore File for Travel Sri Lanka Blog
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE & Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.vim/
+*.code-workspace
+
+# Logs
+*.log
+npm-debug.log*
+composer.log
+
+# Dependencies
+node_modules/
+vendor/
+composer.lock
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+
+# Backup Files
+*.bak
+*.backup
+*backup/
+
+# Temporary Files
+tmp/
+temp/
+cache/
+*.tmp
+
+# Images (comment out if you want to track images)
+# images/
+# *.jpg
+# *.png
+# *.gif
+# *.webp
+
+# Config Files
+php/config-local.php
+
+# Build & Distribution
+dist/
+build/
+.bundle/
+
+# Node
+.npm
+.node_repl_history
+
+# Operating System
+*.swp
+.idea/
+.vscode/settings.json
+
+# Project specific
+data/contacts.json
+data/subscribers.json
+data/comments.json
+storage/
+uploads/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+
+# Ruby
+.bundle/
+.ruby-version
+Gemfile.lock

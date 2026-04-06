@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Travel Sri Lanka</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="../index.html">
+                <i class="fas fa-globe"></i> Travel Sri Lanka
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="bg-primary text-white py-5">
+        <div class="container">
+            <h1 class="mb-2">Travel Blog</h1>
+            <p class="lead mb-0">Discover amazing travel stories, tips, and experiences from around Sri Lanka</p>
+        </div>
+    </div>
+
+    <!-- Filter Section -->
+    <section class="bg-light py-4 border-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Filter by Category:</h5>
+                    <div id="category-filter" class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="Beaches">Beaches</button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="Adventure">Adventure</button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="Food">Food</button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="Culture">Culture</button>
+                        <button type="button" class="btn btn-outline-primary" data-filter="Wildlife">Wildlife</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" id="search-blogs" class="form-control" placeholder="Search blogs...">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Section -->
+    <section class="blog-section py-5">
+        <div class="container">
+            <div id="blog-container" class="row">
+                <!-- Blog posts will be loaded dynamically -->
+                <div class="spinner-border text-primary mx-auto" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sidebar Section with Featured Posts Table -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="mb-4">Featured Posts in Categories</h2>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Author</th>
+                            <th>Published</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="featured-table">
+                        <!-- Table will be populated via AJAX -->
+                        <tr>
+                            <td colspan="6" class="text-center">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Travel Sri Lanka</h5>
+                    <p>Your ultimate travel companion for discovering the beauty of Sri Lanka.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html" class="text-decoration-none text-light">Home</a></li>
+                        <li><a href="blog.html" class="text-decoration-none text-light">Blog</a></li>
+                        <li><a href="about.html" class="text-decoration-none text-light">About</a></li>
+                        <li><a href="contact.html" class="text-decoration-none text-light">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Follow Us</h5>
+                    <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p>&copy; 2026 Travel Sri Lanka. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+        let allBlogs = [];
+
+        $(document).ready(function() {
+            loadAllBlogs();
+        });
+
+        // Load all blogs
+        function loadAllBlogs() {
+            $.ajax({
+                url: '../php/get_blogs.php',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    console.log('All blogs loaded:', data);
+                    allBlogs = data;
+                    displayBlogs(data);
+                    populateFeaturedTable(data);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error loading blogs:', error);
+                    $('#blog-container').html('<div class="alert alert-danger">Error loading blog posts</div>');
+                }
+            });
+        }
+
+        // Display blogs
+        function displayBlogs(blogs) {
+            let html = '';
+            
+            if(blogs.length === 0) {
+                html = '<div class="col-12 text-center"><p>No blog posts available.</p></div>';
+            } else {
+                blogs.forEach(blog => {
+                    const date = new Date(blog.created_date);
+                    const formattedDate = date.toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'short', 
+                        day: 'numeric' 
+                    });
+                    
+                    html += `
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card blog-card h-100">
+                                <img src="../${blog.image}" class="card-img-top" alt="${blog.title}">
+                                <div class="card-body d-flex flex-column">
+                                    <div class="blog-meta">
+                                        <span class="badge bg-primary mb-2">${blog.category}</span>
+                                        <div>
+                                            <i class="fas fa-calendar"></i> ${formattedDate}
+                                            <span class="ms-3">
+                                                <i class="fas fa-user"></i> ${blog.author}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <h5 class="card-title blog-title">${blog.title}</h5>
+                                    <p class="card-text blog-excerpt">${blog.excerpt}</p>
+                                    <a href="blog-details.html?id=${blog.id}" class="mt-auto read-more-btn">
+                                        Read More <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            
+            $('#blog-container').html(html);
+        }
+
+        // Populate featured table
+        function populateFeaturedTable(blogs) {
+            let html = '';
+            
+            blogs.forEach((blog, index) => {
+                const date = new Date(blog.created_date);
+                const formattedDate = date.toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'short', 
+                    day: 'numeric' 
+                });
+                
+                html += `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${blog.title}</td>
+                        <td><span class="badge bg-primary">${blog.category}</span></td>
+                        <td>${blog.author}</td>
+                        <td>${formattedDate}</td>
+                        <td>
+                            <a href="blog-details.html?id=${blog.id}" class="btn btn-sm btn-primary">
+                                <i class="fas fa-eye"></i> View
+                            </a>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            $('#featured-table').html(html);
+        }
+
+        // Category Filter
+        $('#category-filter button').on('click', function() {
+            $('#category-filter button').removeClass('active');
+            $(this).addClass('active');
+            
+            const filter = $(this).data('filter');
+            
+            if(filter === 'all') {
+                displayBlogs(allBlogs);
+            } else {
+                const filtered = allBlogs.filter(blog => blog.category === filter);
+                displayBlogs(filtered);
+            }
+        });
+
+        // Search Blogs
+        $('#search-blogs').on('keyup', function() {
+            const searchTerm = $(this).val().toLowerCase();
+            const filtered = allBlogs.filter(blog => 
+                blog.title.toLowerCase().includes(searchTerm) ||
+                blog.excerpt.toLowerCase().includes(searchTerm) ||
+                blog.author.toLowerCase().includes(searchTerm)
+            );
+            displayBlogs(filtered);
+        });
+    </script>
+</body>
+</html>

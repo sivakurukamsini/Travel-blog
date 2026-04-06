@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "title": "Top 10 Beaches in Sri Lanka You Must Visit",
+        "excerpt": "Discover the most pristine and beautiful beaches in Sri Lanka. From golden sands to crystal clear waters, explore the best coastal destinations.",
+        "content": "<h3>Mirissa Beach</h3><p>Mirissa Beach is one of Sri Lanka's most popular tourist destinations. Located in the southern coast, this crescent-shaped beach offers stunning sunsets and excellent whale watching opportunities.</p><p>The beach is perfect for swimming, surfing, and relaxation. You'll find numerous beachside restaurants and accommodations catering to different budgets.</p><h3>Unawatuna Beach</h3><p>Unawatuna is a charming beach village with a picturesque bay surrounded by lush greenery. It's ideal for families and offers a more laid-back atmosphere compared to Mirissa.</p><h3>Arugambe Beach</h3><p>Located on the east coast, Arugambe Beach is a surfer's paradise. The beach offers consistent waves and a vibrant backpacker community. The nearby Hikkaduwa offers great diving opportunities.</p><h3>Polhena Beach</h3><p>This hidden gem offers a more tranquil experience with shallow lagoons perfect for swimming and snorkeling. The beach is blessed with palm trees and offers a peaceful retreat from the hustle and bustle.</p>",
+        "image": "images/blog1.jpg",
+        "author": "Sarah Johnson",
+        "category": "Beaches",
+        "created_date": "2026-04-01",
+        "tags": ["beach", "travel", "Sri Lanka", "vacation"]
+    },
+    {
+        "id": 2,
+        "title": "Adventure Hiking in the Central Highlands",
+        "excerpt": "Experience the stunning mountain landscapes of Sri Lanka's central highlands. Perfect for adventure seekers and nature lovers.",
+        "content": "<h3>Ella Rock Trek</h3><p>The Ella Rock trek is one of the most popular hikes in Sri Lanka. With a relatively easy to moderate difficulty level, the trek rewards hikers with panoramic views of the surrounding valleys and tea plantations.</p><h3>Adam's Peak</h3><p>Also known as Sri Pada, Adam's Peak is Sri Lanka's most sacred mountain. The pilgrimage hike involves climbing 5,500 steps to reach the summit. The best time to hike is during the dry season when the weather is clear.</p><h3>Pidurutalagala</h3><p>As the highest peak in Sri Lanka, Pidurutalagala offers challenging hikes with diverse ecosystems. The trek takes you through lush forests and grants access to stunning vistas from the summit.</p><h3>Little Adam's Peak</h3><p>This easier alternative to Adam's Peak offers similar rewards without the challenging climb. Located near Ella, it's perfect for those with limited time and fitness levels.</p>",
+        "image": "images/blog2.jpg",
+        "author": "Michael Chen",
+        "category": "Adventure",
+        "created_date": "2026-03-28",
+        "tags": ["hiking", "mountains", "adventure", "nature"]
+    },
+    {
+        "id": 3,
+        "title": "Sri Lankan Cuisine: A Culinary Journey",
+        "excerpt": "Explore the rich and diverse flavors of Sri Lankan cuisine. From curries to seafood, discover must-try dishes.",
+        "content": "<h3>Kottu Roti</h3><p>Kottu Roti is a popular street food consisting of chopped roti bread mixed with meat, vegetables, and spices. It's flavorful, affordable, and widely available throughout Sri Lanka.</p><h3>Lamprais</h3><p>This fusion dish combines European and Sri Lankan culinary traditions. It consists of rice, meat, and eggs wrapped in banana leaves and steamed or baked.</p><h3>Devilled Dishes</h3><p>Sri Lankan devilled preparations are spicy stir-fried dishes that can include chicken, seafood, or vegetables cooked with hot curry powder and other seasonings.</p><h3>Hoppers</h3><p>Hoppers are bowl-shaped pancakes made from rice flour and coconut milk. They're typically served for breakfast with curry or jaggery and banana.</p>",
+        "image": "images/blog3.jpg",
+        "author": "Emma Wilson",
+        "category": "Food",
+        "created_date": "2026-03-25",
+        "tags": ["food", "cuisine", "travel", "culture"]
+    },
+    {
+        "id": 4,
+        "title": "Cultural Wonders: Ancient Temples of Sri Lanka",
+        "excerpt": "Discover the spiritual heritage of Sri Lanka through its ancient temples and religious sites.",
+        "content": "<h3>Temple of the Tooth Relic</h3><p>Located in Kandy, the Temple of the Tooth Relic is one of the most sacred Buddhist temples in the world. It houses a tooth relic of Buddha and is a UNESCO World Heritage Site.</p><h3>Sigiriya Rock</h3><p>Sigiriya Rock is an ancient fortress that dates back to the 5th century. The site features fascinating frescoes and offers panoramic views from the summit.</p><h3>Dambulla Cave Temple</h3><p>This cave temple complex contains five caves with over 150 Buddha statues. It's the largest cave temple sanctuary in Sri Lanka and a UNESCO World Heritage Site.</p><h3>Polonnaruwa Ancient City</h3><p>The second ancient capital of Sri Lanka, Polonnaruwa is home to numerous temples and structures that showcase the architectural brilliance of ancient Sri Lankan civilization.</p>",
+        "image": "images/blog4.jpg",
+        "author": "David Kumar",
+        "category": "Culture",
+        "created_date": "2026-03-20",
+        "tags": ["temple", "culture", "history", "spirituality"]
+    },
+    {
+        "id": 5,
+        "title": "Wildlife Safari in Yala National Park",
+        "excerpt": "Experience thrilling wildlife encounters in Sri Lanka's most popular national park.",
+        "content": "<h3>Leopards</h3><p>Yala National Park has one of the highest concentrations of leopards in the world. Early morning safaris offer the best chances of spotting these elusive big cats.</p><h3>Elephants</h3><p>Asian elephants roam freely in Yala, often traveling in herds. Witnessing these magnificent creatures in their natural habitat is an unforgettable experience.</p><h3>Bird Watching</h3><p>With over 200 bird species, Yala is a paradise for birdwatchers. The park is home to multiple endemic species found only in Sri Lanka.</p><h3>Other Wildlife</h3><p>The park is also home to sloth bears, junglefowl, monitor lizards, and various other species. Every safari brings new and exciting wildlife encounters.</p>",
+        "image": "images/blog5.jpg",
+        "author": "Robert Martinez",
+        "category": "Wildlife",
+        "created_date": "2026-03-15",
+        "tags": ["safari", "wildlife", "national park", "adventure"]
+    }
+]
