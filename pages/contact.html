@@ -241,33 +241,8 @@
         $('#contact-form').on('submit', function(e) {
             e.preventDefault();
             
-            const name = $('#name').val();
-            const email = $('#email').val();
-            const subject = $('#subject').val();
-            const message = $('#message').val();
-            
-            $.ajax({
-                url: '../php/send_contact.php',
-                type: 'POST',
-                data: {
-                    name: name,
-                    email: email,
-                    subject: subject,
-                    message: message
-                },
-                dataType: 'json',
-                success: function(response) {
-                    if(response.success) {
-                        $('#form-response').html('<div class="alert alert-success mt-3">' + response.message + '</div>');
-                        $('#contact-form')[0].reset();
-                    } else {
-                        $('#form-response').html('<div class="alert alert-danger mt-3">' + response.message + '</div>');
-                    }
-                },
-                error: function() {
-                    $('#form-response').html('<div class="alert alert-danger mt-3">Error sending message. Please try again.</div>');
-                }
-            });
+            alert('Contact form is disabled in the static version. Please contact the site administrator directly.');
+            $('#contact-form')[0].reset();
         });
     </script>
 </body>
