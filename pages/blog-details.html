@@ -221,25 +221,8 @@
             $('#comment-form').on('submit', function(e) {
                 e.preventDefault();
                 
-                const name = $('#comment-name').val();
-                const email = $('#comment-email').val();
-                const comment = $('#comment-text').val();
-                
-                saveComment(currentBlogId, name, email, comment).done(function(response) {
-                    if(response.success) {
-                        $('#comment-response').html('<div class="alert alert-success">Comment posted successfully!</div>');
-                        $('#comment-form')[0].reset();
-                        // Reload comments
-                        setTimeout(function() {
-                            loadComments(currentBlogId);
-                            $('#comment-response').html('');
-                        }, 2000);
-                    } else {
-                        $('#comment-response').html('<div class="alert alert-danger">' + response.message + '</div>');
-                    }
-                }).fail(function() {
-                    $('#comment-response').html('<div class="alert alert-danger">Error posting comment</div>');
-                });
+                alert('Comments are disabled in the static version. Please contact the site administrator.');
+                $('#comment-form')[0].reset();
             });
         });
 
@@ -256,10 +239,14 @@
         // Load all blogs for sidebar and related articles
         function loadAllBlogs() {
             $.ajax({
-                url: '../php/get_blogs.php',
+                url: '../data/blogs.json',
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
+                    // Sort by date
+                    data.sort(function(a, b) {
+                        return new Date(b.created_date) - new Date(a.created_date);
+                    });
                     allBlogs = data;
                     displayRecentPosts(data);
                     displayRelatedArticles(data);
