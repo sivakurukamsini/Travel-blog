@@ -151,11 +151,15 @@
         // Load all blogs
         function loadAllBlogs() {
             $.ajax({
-                url: '../php/get_blogs.php',
+                url: '../data/blogs.json',
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
                     console.log('All blogs loaded:', data);
+                    // Sort by date
+                    data.sort(function(a, b) {
+                        return new Date(b.created_date) - new Date(a.created_date);
+                    });
                     allBlogs = data;
                     displayBlogs(data);
                     populateFeaturedTable(data);
