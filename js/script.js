@@ -11,36 +11,23 @@ $(document).ready(function() {
     // Newsletter subscription
     $('#newsletter-form').on('submit', function(e) {
         e.preventDefault();
-        const email = $(this).find('input[type="email"]').val();
-        
-        $.ajax({
-            url: 'php/subscribe.php',
-            type: 'POST',
-            data: { email: email },
-            dataType: 'json',
-            success: function(response) {
-                if(response.success) {
-                    alert('Thank you for subscribing!');
-                    $('#newsletter-form')[0].reset();
-                } else {
-                    alert('Error: ' + response.message);
-                }
-            },
-            error: function() {
-                alert('Unable to subscribe. Please try again.');
-            }
-        });
+        alert('Newsletter subscription is disabled in the static version. Please contact the site administrator.');
+        $('#newsletter-form')[0].reset();
     });
 });
 
 // Function to load blog posts via AJAX
 function loadBlogPosts() {
     $.ajax({
-        url: 'php/get_blogs.php',
+        url: 'data/blogs.json',
         type: 'GET',
         dataType: 'json',
         success: function(data) {
             console.log('Blogs loaded:', data);
+            // Sort by date (newest first)
+            data.sort(function(a, b) {
+                return new Date(b.created_date) - new Date(a.created_date);
+            });
             displayBlogPosts(data);
         },
         error: function(xhr, status, error) {
@@ -94,7 +81,7 @@ function displayBlogPosts(blogs) {
 // Function to load destinations via AJAX
 function loadDestinations() {
     $.ajax({
-        url: 'php/get_destinations.php',
+        url: 'data/destinations.json',
         type: 'GET',
         dataType: 'json',
         success: function(data) {
@@ -131,29 +118,56 @@ function displayDestinations(destinations) {
 
 // Function to load statistics via AJAX
 function loadStatistics() {
+    // Load blogs
     $.ajax({
-        url: 'php/get_statistics.php',
+        url: 'data/blogs.json',
         type: 'GET',
-        dataType: 'json',
-        success: function(data) {
-            console.log('Statistics loaded:', data);
-            $('#blog-count').text(data.blog_count);
-            $('#destination-count').text(data.destination_count);
-            $('#comment-count').text(data.comment_count);
-        },
-        error: function() {
-            console.error('Error loading statistics');
-        }
+        dataType: 'json'
+    }).done(function(blogs) {
+        $('#blog-count').text(blogs.length);
+        $('#total-blog-count').text(blogs.length);
+    }).fail(function() {
+        console.error('Error loading blog count');
+    });
+
+    // Load destinations
+    $.ajax({
+        url: 'data/destinations.json',
+        type: 'GET',
+        dataType: 'json'
+    }).done(function(destinations) {
+        $('#destination-count').text(destinations.length);
+        $('#total-destination-count').text(destinations.length);
+    }).fail(function() {
+        console.error('Error loading destination count');
+    });
+
+    // Load comments
+    $.ajax({
+        url: 'data/comments.json',
+        type: 'GET',
+        dataType: 'json'
+    }).done(function(comments) {
+        $('#comment-count').text(comments.length);
+        $('#total-comment-count').text(comments.length);
+    }).fail(function() {
+        console.error('Error loading comment count');
     });
 }
 
 // Function to get blog details by ID
 function getBlogDetails(blogId) {
     return $.ajax({
-        url: 'php/get_blog_details.php',
+        url: 'data/blogs.json',
         type: 'GET',
-        data: { id: blogId },
         dataType: 'json'
+    }).then(function(blogs) {
+        for (let blog of blogs) {
+            if (blog.id == blogId) {
+                return blog;
+            }
+        }
+        throw new Error('Blog not found');
     });
 }
 
@@ -187,13 +201,18 @@ function displayBlogDetails(blog) {
 // Function to load comments for a blog post
 function loadComments(blogId) {
     $.ajax({
-        url: 'php/get_comments.php',
+        url: 'data/comments.json',
         type: 'GET',
-        data: { blog_id: blogId },
         dataType: 'json',
         success: function(data) {
             console.log('Comments loaded:', data);
-            displayComments(data);
+            // Filter comments by blog_id
+            const filteredComments = data.filter(comment => comment.blog_id == blogId);
+            // Sort by date (newest first)
+            filteredComments.sort(function(a, b) {
+                return new Date(b.created_date) - new Date(a.created_date);
+            });
+            displayComments(filteredComments);
         },
         error: function() {
             console.error('Error loading comments');
